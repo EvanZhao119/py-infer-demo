@@ -1,0 +1,71 @@
+# ============================================
+# OS-specific files
+# ============================================
+.DS_Store
+Thumbs.db
+
+# ============================================
+# IDE & Editor files
+# ============================================
+.idea/
+.vscode/
+*.iml
+*.swp
+
+# ============================================
+# Java build & dependency files
+# ============================================
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# ============================================
+# Maven / Gradle cache
+# ============================================
+.mvn/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ============================================
+# Python related
+# ============================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+*.log
+*.sqlite3
+*.db
+*.pid
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# ============================================
+# Application specific (add your own folders)
+# ============================================
+fastapi_app/
+grpc_app/
+models/
+logs/
+data/
+uploads/
+*.tmp
+*.bak
+
+# ============================================
+# Node.js or frontend cache (if any future use)
+# ============================================
+node_modules/
+dist/
+
