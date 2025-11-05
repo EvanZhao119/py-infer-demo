@@ -14,7 +14,6 @@ def _load_model():
     if _MODEL is None:
         base_dir = os.path.dirname(__file__)
         weights_path = os.path.join(base_dir, "models", "resnet18-f37072fd.pth")
-        # weights_path = "/Users/hongnan/EvanShan-Tech/py-infer-demo/grpc_app/models/resnet18-f37072fd.pth"
         _MODEL = models.resnet18()
         state_dict = torch.load(weights_path, map_location=torch.device("cpu"))
         _MODEL.load_state_dict(state_dict, strict=False)

@@ -4,6 +4,20 @@ from concurrent import futures
 import classify_pb2, classify_pb2_grpc
 from infer import predict_bytes
 
+import torch, os, resource, platform
+
+if platform.system() == "Linux":
+    try:
+        resource.setrlimit(resource.RLIMIT_AS, (400 * 1024 * 1024, 400 * 1024 * 1024))
+    except Exception as e:
+        print(f"[WARN] setrlimit skipped: {e}")
+else:
+    print("[INFO] macOS detected — skip memory rlimit")
+
+torch.set_num_threads(1)
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
 class ClassifierServicer(classify_pb2_grpc.ClassifierServicer):
     def Predict(self, request, context):
         topk = request.topk if request.topk > 0 else 5
