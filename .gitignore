@@ -54,7 +54,6 @@ env/
 # ============================================
 # Application specific (add your own folders)
 # ============================================
-models/
 logs/
 data/
 uploads/
