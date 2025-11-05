@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package classify;
+
+service Classifier {
+  rpc Predict (ImageRequest) returns (PredictionResponse) {}
+}
+
+message ImageRequest {
+  bytes image = 1; // 原始图片字节
+  int32 topk = 2;  // 默认 5
+}
+
+message Prediction {
+  string label = 1;
+  float prob = 2;
+}
+
+message PredictionResponse {
+  repeated Prediction topk = 1;
+}

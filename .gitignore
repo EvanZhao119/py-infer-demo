@@ -54,8 +54,6 @@ env/
 # ============================================
 # Application specific (add your own folders)
 # ============================================
-fastapi_app/
-grpc_app/
 models/
 logs/
 data/

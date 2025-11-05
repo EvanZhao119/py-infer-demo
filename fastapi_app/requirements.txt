@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+torch
+torchvision
+pillow
+# numpy 降级到 <2，兼容当前 PyTorch
+numpy<2
+# 处理 multipart/form-data 上传
+python-multipart

@@ -1,0 +1,19 @@
+cd py-infer-demo/fastapi_app
+python -m venv venv && source venv/bin/activate  # Windows 用 venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app:app --host 0.0.0.0 --port 8000 --workers 1
+
+curl -X POST "http://127.0.0.1:8000/predict/file?topk=5" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@/Users/hongnan/EvanShan-Tech/djl-resnet/assets/1.png"
+
+
+Result:{"topk":
+[{"label":"giant panda","prob":0.9998440742492676},
+{"label":"American black bear","prob":3.7031364627182484e-05},
+{"label":"ice bear","prob":3.344678407302126e-05},
+{"label":"lesser panda","prob":2.7083551685791463e-05},
+{"label":"teddy","prob":7.07571916791494e-06}]}
+
+deactivate

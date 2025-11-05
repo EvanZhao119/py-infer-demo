@@ -1,0 +1,26 @@
+Generate Python Code(only execute once):
+cd py-infer-demo/grpc_app
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+python -m grpc_tools.protoc -I=protos --python_out=. --grpc_python_out=. protos/classify.proto
+Generating two files, classify_pb2.py and classify_pb2_grpc.py
+
+Run and Test:
+# Terminal1: run server
+cd py-infer-demo/grpc_app
+source venv/bin/activate
+python server.py
+
+# Terminal2: run client
+source venv/bin/activate
+python client.py /Users/hongnan/EvanShan-Tech/djl-resnet/assets/1.png
+
+Result:
+Top-K predictions:
+giant panda: 0.9998
+American black bear: 0.0000
+ice bear: 0.0000
+lesser panda: 0.0000
+teddy: 0.0000
+
+deactivate
