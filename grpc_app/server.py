@@ -33,7 +33,7 @@ class ClassifierServicer(classify_pb2_grpc.ClassifierServicer):
             return classify_pb2.PredictionResponse()
 
 def serve(port: int = 50051):
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=4))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=1))
     classify_pb2_grpc.add_ClassifierServicer_to_server(ClassifierServicer(), server)
     server.add_insecure_port(f"[::]:{port}")
     server.start()
